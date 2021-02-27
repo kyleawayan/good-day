@@ -3,8 +3,8 @@ import Modal from 'react-modal';
 
 type ModalComponentProps = {
   isOpen: boolean;
-  onClose: any;
-  children: any;
+  onClose: () => void;
+  children: React.ReactNode;
 };
 
 export default function ModalComponent({
