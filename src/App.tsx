@@ -13,7 +13,6 @@ export default function App() {
     ipcRenderer
       .invoke('getCanvasToken')
       .then((retrievedToken) => {
-        console.log(retrievedToken);
         if (retrievedToken) {
           setToken(retrievedToken);
         } else {

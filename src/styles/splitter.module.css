@@ -15,10 +15,11 @@
   width: 280px;
   padding: 2rem;
   border-left: 3px solid rgb(25, 25, 25);
+  background-color: black;
+  z-index: 2;
 }
 
 .content {
-  padding: 2rem;
   width: 100%;
 }
 

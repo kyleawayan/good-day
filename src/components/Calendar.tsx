@@ -1,9 +1,11 @@
 import React from 'react';
 import useSWR from 'swr';
 import axios from 'axios';
+import CalendarItem from './CalendarItem';
 
 type PlannableObject = {
   all_day: boolean;
+  due_at: string;
   created_at: string;
   description: string;
   end_at: string;
@@ -52,12 +54,10 @@ export default function Calendar({ token }: CalendarProps) {
   if (error) return <div>failed to load</div>;
   if (!data) return <div>loading...</div>;
 
-  console.log(data);
-
   return (
     <div>
       {data.map((event: PlannerItem) => (
-        <li key={event.plannable_id}>{event.plannable.title}</li>
+        <CalendarItem plannerItem={event} key={event.plannable.id} />
       ))}
     </div>
   );
