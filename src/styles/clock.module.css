@@ -1,0 +1,12 @@
+.clock {
+  font-family: 'FormaDJRBanner';
+  text-align: center;
+}
+
+.hoursAndMinutes {
+  font-size: 100px;
+}
+
+.seconds {
+  font-size: 50px;
+}

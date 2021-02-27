@@ -1,0 +1,20 @@
+{
+  "name": "good-day",
+  "productName": "Good Day",
+  "version": "0.1.0",
+  "description": "Planner display for Canvas LMS",
+  "main": "./main.prod.js",
+  "author": {
+    "name": "Kyle Awayan",
+    "email": "kyle@awayan.com",
+    "url": "https://github.com/kyleawayan/good-day"
+  },
+  "scripts": {
+    "electron-rebuild": "node -r ../.erb/scripts/BabelRegister.js ../.erb/scripts/ElectronRebuild.js",
+    "postinstall": "yarn electron-rebuild"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "keytar": "^7.4.0"
+  }
+}
