@@ -1,7 +1,7 @@
 import React from 'react';
-import styles from '../styles/splitter.module.css';
+import styles from '../styles/Splitter.module.css';
 import Clock from './Clock';
-import Calendar from './Calendar';
+import Planner from './Planner';
 
 type SplitterProps = {
   token: string;
@@ -14,7 +14,7 @@ export default function Splitter({ token }: SplitterProps) {
         <Clock />
       </div>
       <div className={styles.content}>
-        <Calendar token={token} />
+        <Planner token={token} />
       </div>
     </div>
   );

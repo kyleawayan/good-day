@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import styles from '../styles/clock.module.css';
+import styles from '../styles/Clock.module.css';
 
 const zeroPad = (num: number, places: number) =>
   String(num).padStart(places, '0');
@@ -7,7 +7,7 @@ const zeroPad = (num: number, places: number) =>
 function getTime() {
   const date = new Date();
   return {
-    hour: zeroPad(date.getHours(), 2),
+    hour: date.getHours() % 12,
     minute: zeroPad(date.getMinutes(), 2),
     seconds: zeroPad(date.getSeconds(), 2),
   };
@@ -15,7 +15,7 @@ function getTime() {
 
 export default function Clock() {
   const [time, setTime] = useState({
-    hour: '00',
+    hour: 0,
     minute: '00',
     seconds: '00',
   });

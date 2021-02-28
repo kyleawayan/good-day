@@ -1,0 +1,8 @@
+.blocksParent {
+  position: relative;
+}
+
+.blocks {
+  position: absolute;
+  top: 8px;
+}
