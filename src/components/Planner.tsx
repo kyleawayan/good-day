@@ -25,10 +25,13 @@ export default function Planner({ token }: CalendarProps) {
       next={fetchData}
       hasMore
       loader={<h4>Loading...</h4>}
+      style={{
+        width: '250%',
+      }}
     >
       {dates.map((_, index) => (
         <div key={dates[index].getTime()}>
-          <PlannerDay date={dates[index]} dayNumber={index} token={token} />
+          <PlannerDay date={dates[index]} token={token} />
         </div>
       ))}
     </InfiniteScroll>

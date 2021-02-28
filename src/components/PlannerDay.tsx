@@ -22,15 +22,10 @@ const getCalendarData = (date: Date, token: string) => {
 
 type PlannerDayProps = {
   date: Date;
-  dayNumber: number;
   token: string;
 };
 
-export default function PlannerDay({
-  date,
-  dayNumber,
-  token,
-}: PlannerDayProps) {
+export default function PlannerDay({ date, token }: PlannerDayProps) {
   const { data, error } = useSWR([date, token], getCalendarData);
 
   if (error) return <div>failed to load</div>;
