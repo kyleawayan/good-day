@@ -12,6 +12,7 @@ type PlannableObject = {
   start_at: string;
   title: string;
   updated_at: string;
+  todo_date: string;
 };
 
 type PlannerItem = {

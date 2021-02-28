@@ -1,0 +1,10 @@
+.parent {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.child {
+  flex: 0 1 300px;
+  text-align: center;
+  position: relative;
+}
