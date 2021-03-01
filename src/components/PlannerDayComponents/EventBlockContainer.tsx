@@ -9,7 +9,6 @@ type EventBlockContainerProps = {
 export default function EventBlockContainer({
   eventBatchArray,
 }: EventBlockContainerProps) {
-  console.log(eventBatchArray);
   return (
     <div className={styles.parent}>
       {eventBatchArray.map((event: PlannerItem) => (

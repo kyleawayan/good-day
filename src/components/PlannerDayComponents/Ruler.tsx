@@ -8,7 +8,7 @@ export default function Ruler() {
       {divs.map((_, index) => (
         // eslint-disable-next-line react/no-array-index-key
         <div key={index} className={styles.hour}>
-          {index}
+          <div className={styles.hourText}>{index % 12}</div>
         </div>
       ))}
     </div>

@@ -16,11 +16,10 @@
   padding: 2rem;
   border-left: 3px solid rgb(25, 25, 25);
   background-color: black;
-  z-index: 2;
 }
 
 .content {
-  width: 100%;
+  width: 300%;
 }
 
 body {

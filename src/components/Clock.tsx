@@ -32,6 +32,7 @@ export default function Clock() {
       <span className={styles.hoursAndMinutes}>
         {time.hour}:{time.minute}
         <span className={styles.seconds}>{time.seconds}</span>
+        <div className={styles.currentTimeLine} />
       </span>
     </div>
   );

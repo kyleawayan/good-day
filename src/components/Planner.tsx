@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import InfiniteScroll from 'react-infinite-scroll-component';
 import PlannerDay from './PlannerDay';
 
@@ -19,6 +19,20 @@ export default function Planner({ token }: CalendarProps) {
     setDatesShowing(datesShowing + 1);
   };
 
+  useEffect(() => {
+    const scrollInterval = setInterval(() => {
+      const startOfDayDate = new Date().setHours(0, 0, 0, 0);
+      const hoursSinceStartOfCurrentDay =
+        (new Date().getTime() - startOfDayDate) / 60000 / 60;
+      console.log(hoursSinceStartOfCurrentDay);
+      window.scrollTo({
+        top: 202.8 * hoursSinceStartOfCurrentDay - 125,
+        behavior: 'smooth',
+      });
+    }, 1000);
+    return () => clearInterval(scrollInterval);
+  }, []);
+
   return (
     <InfiniteScroll
       dataLength={dates.length} // This is important field to render the next data
@@ -26,7 +40,7 @@ export default function Planner({ token }: CalendarProps) {
       hasMore
       loader={<h4>Loading...</h4>}
       style={{
-        width: '300%',
+        width: '100%',
       }}
     >
       {dates.map((_, index) => (
