@@ -30,7 +30,7 @@ export default function arrangeBlocks(
   data: Array<PlannerItem>
 ): Array<Array<PlannerItem>> {
   const finalArray: Array<Array<PlannerItem>> = [];
-  if (data.length !== 0) {
+  if (data.length >= 2) {
     let tempArray: Array<PlannerItem> = [data[0]]; // where two (or more) blocks would be joined together. aka they have overlapping times
     let domain = getTimeDomain(data[0]);
 
@@ -48,6 +48,8 @@ export default function arrangeBlocks(
         domain = getTimeDomain(data[i]);
       }
     }
+  } else if (data.length !== 0) {
+    finalArray.push([data[0]]);
   }
 
   return finalArray;

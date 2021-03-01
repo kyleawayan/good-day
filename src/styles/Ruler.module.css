@@ -1,3 +1,4 @@
 .hour {
   height: 200px;
+  border-top: 3px solid rgb(25, 25, 25);
 }

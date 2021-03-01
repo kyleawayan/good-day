@@ -12,4 +12,8 @@ async function getToken(): Promise<string | null> {
   return keytar.getPassword('good-day-kylan-canvasToken', 'canvas-token');
 }
 
-export { storeToken, getToken };
+function deleteToken(): Promise<boolean> {
+  return keytar.deletePassword('good-day-kylan-canvasToken', 'canvas-token');
+}
+
+export { storeToken, getToken, deleteToken };

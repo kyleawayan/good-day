@@ -26,7 +26,7 @@ export default function Planner({ token }: CalendarProps) {
       hasMore
       loader={<h4>Loading...</h4>}
       style={{
-        width: '250%',
+        width: '300%',
       }}
     >
       {dates.map((_, index) => (

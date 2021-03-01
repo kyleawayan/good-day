@@ -1,6 +1,6 @@
 {
   "name": "electron-react-boilerplate",
-  "productName": "ElectronReact",
+  "productName": "Good Day",
   "description": "Electron application boilerplate based on React, React Router, Webpack, React Fast Refresh for rapid application development",
   "scripts": {
     "build": "concurrently \"yarn build:main\" \"yarn build:renderer\"",
@@ -30,8 +30,8 @@
     ]
   },
   "build": {
-    "productName": "ElectronReact",
-    "appId": "org.erb.ElectronReact",
+    "productName": "Good Day",
+    "appId": "com.kylan.goodDay",
     "files": [
       "dist/",
       "node_modules/",
@@ -92,7 +92,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/electron-react-boilerplate/electron-react-boilerplate.git"
+    "url": "git+https://github.com/kyleawayan/good-day.git"
   },
   "author": {
     "name": "Electron React Boilerplate Maintainers",
@@ -113,7 +113,7 @@
   ],
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/electron-react-boilerplate/electron-react-boilerplate/issues"
+    "url": "https://github.com/kyleawayan/good-day/issues"
   },
   "keywords": [
     "electron",
@@ -126,7 +126,7 @@
     "hot",
     "reload"
   ],
-  "homepage": "https://github.com/electron-react-boilerplate/electron-react-boilerplate#readme",
+  "homepage": "https://github.com/kyleawayan/good-day#readme",
   "jest": {
     "testURL": "http://localhost/",
     "moduleNameMapper": {
@@ -269,7 +269,7 @@
     "yarn": ">=1.21.3"
   },
   "collective": {
-    "url": "https://opencollective.com/electron-react-boilerplate-594"
+    "url": "https://github.com/kyleawayan/good-day"
   },
   "browserslist": [],
   "prettier": {

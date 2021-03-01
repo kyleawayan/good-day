@@ -9,4 +9,8 @@ export default function ipcStuff() {
   ipcMain.handle('getCanvasToken', async () => {
     return canvas.getToken();
   });
+
+  ipcMain.handle('deleteCanvasToken', async () => {
+    return canvas.deleteToken();
+  });
 }
