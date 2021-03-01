@@ -26,7 +26,9 @@ type PlannerDayProps = {
 };
 
 export default function PlannerDay({ date, token }: PlannerDayProps) {
-  const { data, error } = useSWR([date, token], getCalendarData);
+  const { data, error } = useSWR([date, token], getCalendarData, {
+    refreshInterval: 1000,
+  });
 
   if (error) return <div>failed to load</div>;
   if (!data) return <div>loading...</div>;

@@ -29,7 +29,8 @@ const getCalendarData = (date: Date, token: string) => {
 export default function UpcomingEvents({ token }: UpcomingEventsProps) {
   const { data, error } = useSWR(
     [new Date().setHours(0, 0, 0, 0), token],
-    getCalendarData
+    getCalendarData,
+    { refreshInterval: 1000 }
   );
 
   if (error) return <div>failed to load</div>;
