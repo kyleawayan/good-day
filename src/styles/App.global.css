@@ -8,16 +8,26 @@
   font-style: normal;
   font-weight: 400;
   font-display: swap;
-  src: url('../fonts/Inter-Regular.woff2?v=3.15') format('woff2'),
-    url('../fonts/Inter-Regular.woff?v=3.15') format('woff');
+  src: url('../fonts/Inter/Inter-Regular.woff2?v=3.15') format('woff2'),
+    url('../fonts/Inter/Inter-Regular.woff?v=3.15') format('woff');
 }
 
 @font-face {
-  src: url('../fonts/FormaDJRBanner-BoldItalic.eot'); /* IE < 9 */
-  src: url('../fonts/FormaDJRBanner-BoldItalic.eot?#')
+  font-family: 'InterSemiBold';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url('../fonts/Inter/Inter-SemiBold.woff2?v=3.15') format('woff2'),
+    url('../fonts/Inter/Inter-SemiBold.woff?v=3.15') format('woff');
+}
+
+@font-face {
+  src: url('../fonts/FormaDJR/FormaDJRBanner-BoldItalic.eot'); /* IE < 9 */
+  src: url('../fonts/FormaDJR/FormaDJRBanner-BoldItalic.eot?#')
       format('embedded-opentype'),
-    /* IE 9 */ url('../fonts/FormaDJRBanner-BoldItalic.woff2') format('woff2'),
-    url('../fonts/FormaDJRBanner-BoldItalic.woff') format('woff');
+    /* IE 9 */ url('../fonts/FormaDJR/FormaDJRBanner-BoldItalic.woff2')
+      format('woff2'),
+    url('../fonts/FormaDJR/FormaDJRBanner-BoldItalic.woff') format('woff');
   font-family: 'FormaDJRBanner';
   font-style: italic;
   font-weight: bold;

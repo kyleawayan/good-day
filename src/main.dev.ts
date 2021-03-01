@@ -14,7 +14,6 @@ import path from 'path';
 import { app, BrowserWindow, shell } from 'electron';
 import { autoUpdater } from 'electron-updater';
 import log from 'electron-log';
-import MenuBuilder from './menu';
 
 // other files for main process
 import ipcStuff from './mainStuff/ipc';
@@ -80,6 +79,8 @@ const createWindow = async () => {
     },
   });
 
+  mainWindow.removeMenu();
+
   // start ipc handlers
   ipcStuff();
 
@@ -102,9 +103,6 @@ const createWindow = async () => {
   mainWindow.on('closed', () => {
     mainWindow = null;
   });
-
-  const menuBuilder = new MenuBuilder(mainWindow);
-  menuBuilder.buildMenu();
 
   // Open urls in the user's browser
   mainWindow.webContents.on('new-window', (event, url) => {

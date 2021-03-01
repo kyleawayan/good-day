@@ -36,15 +36,14 @@ export default function EventBlock({ event }: EventBlockProps) {
     60000 /
     60;
 
-  console.log(event.course_id % 5);
   return (
     <div
       style={{
         top: hoursSinceStartOfCurrentDay * 200,
         height: eventHeight,
-        backgroundColor: `rgba(${palette[event.course_id % 5][0]}, ${
-          palette[event.course_id % 5][1]
-        }, ${palette[event.course_id % 5][2]}, 0.5)`,
+        backgroundColor: `rgba(${palette[(event.course_id ?? 0) % 5][0]}, ${
+          palette[(event.course_id ?? 0) % 5][1]
+        }, ${palette[(event.course_id ?? 0) % 5][2]}, 0.5)`,
       }}
       className={styles.eventBlock}
     >

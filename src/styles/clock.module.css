@@ -1,6 +1,7 @@
 .clock {
   font-family: 'FormaDJRBanner';
   text-align: center;
+  padding: 2rem;
 }
 
 .hoursAndMinutes {

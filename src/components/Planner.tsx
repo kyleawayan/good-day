@@ -24,10 +24,10 @@ export default function Planner({ token }: CalendarProps) {
       const startOfDayDate = new Date().setHours(0, 0, 0, 0);
       const hoursSinceStartOfCurrentDay =
         (new Date().getTime() - startOfDayDate) / 60000 / 60;
-      // window.scrollTo({
-      //   top: 202.8 * hoursSinceStartOfCurrentDay - 125,
-      //   behavior: 'smooth',
-      // });
+      window.scrollTo({
+        top: 202.8 * hoursSinceStartOfCurrentDay - 125,
+        behavior: 'smooth',
+      });
     }, 1000);
     return () => clearInterval(scrollInterval);
   }, []);
@@ -40,6 +40,7 @@ export default function Planner({ token }: CalendarProps) {
       loader={<h4>Loading...</h4>}
       style={{
         width: '100%',
+        overflow: 'hidden',
       }}
     >
       {dates.map((_, index) => (

@@ -28,3 +28,8 @@ type PlannerItem = {
   // planner_override: PlannerOverride
   submissions: boolean;
 };
+
+type DateEventObject = {
+  date: Date;
+  data: Array<PlannerItem>;
+};
