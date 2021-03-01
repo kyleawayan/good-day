@@ -28,3 +28,7 @@ body {
   color: white;
   font-family: 'Inter';
 }
+
+body::-webkit-scrollbar {
+  display: none;
+}
