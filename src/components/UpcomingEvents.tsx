@@ -36,14 +36,14 @@ export default function UpcomingEvents({ token }: UpcomingEventsProps) {
   if (error) return <div>failed to load</div>;
   if (!data) return <div>loading...</div>;
 
-  console.log(data);
-
   return (
     <div className={styles.upcomingEvents}>
       <h1>Upcoming Events</h1>
       {data.map((dayEvents: DateEventObject) => (
-        // eslint-disable-next-line react/jsx-key
-        <UpcomingEventDays dayEvents={dayEvents} />
+        <UpcomingEventDays
+          dayEvents={dayEvents}
+          key={dayEvents.date.getTime()}
+        />
       ))}
     </div>
   );

@@ -10,12 +10,16 @@ type BlocksProps = {
 export default function Blocks({ data }: BlocksProps) {
   const arrayData = arrangeBlocks(data);
 
+  console.log(arrayData);
+
   return (
     <div className={styles.blocksParent}>
       <div className={styles.blocks}>
         {arrayData.map((eventArray: Array<PlannerItem>) => (
-          // eslint-disable-next-line react/jsx-key
-          <EventBlockContainer eventBatchArray={eventArray} />
+          <EventBlockContainer
+            eventBatchArray={eventArray}
+            key={new Date(eventArray[0].plannable_date).getTime()}
+          />
         ))}
       </div>
     </div>

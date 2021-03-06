@@ -9,7 +9,6 @@ export default function seperateEventsByDates(
   let dataInDateEventObject = [];
   let i;
   for (i = 0; i < data.length; i += 1) {
-    console.log(dataInDateEventObject.length);
     if (
       new Date(
         new Date(data[i].plannable_date).setHours(0, 0, 0, 0)

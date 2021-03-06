@@ -34,18 +34,20 @@ export default function arrangeBlocks(
     let tempArray: Array<PlannerItem> = [data[0]]; // where two (or more) blocks would be joined together. aka they have overlapping times
     let domain = getTimeDomain(data[0]);
 
+    console.log(data);
+
     let i;
     for (i = 1; i < data.length; i += 1) {
       const eventStartTime = new Date(data[i].plannable_date).getTime();
       if (domain[0] <= eventStartTime && eventStartTime <= domain[1]) {
         tempArray.push(data[i]);
       } else {
-        if (tempArray.length === 0) {
-          tempArray.push(data[i]);
-        }
         finalArray.push(tempArray);
-        tempArray = [];
+        tempArray = [data[i]];
         domain = getTimeDomain(data[i]);
+        if (i === data.length - 1) {
+          finalArray.push([data[i]]);
+        }
       }
     }
   } else if (data.length !== 0) {

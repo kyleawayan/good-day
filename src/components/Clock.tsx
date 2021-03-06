@@ -7,7 +7,7 @@ const zeroPad = (num: number, places: number) =>
 function getTime() {
   const date = new Date();
   return {
-    hour: date.getHours() % 12,
+    hour: (date.getHours() % 12).toString().replace(/(?<!\S)\d(?!\S)/g, '12'),
     minute: zeroPad(date.getMinutes(), 2),
     seconds: zeroPad(date.getSeconds(), 2),
   };
@@ -15,7 +15,7 @@ function getTime() {
 
 export default function Clock() {
   const [time, setTime] = useState({
-    hour: 0,
+    hour: '0',
     minute: '00',
     seconds: '00',
   });
