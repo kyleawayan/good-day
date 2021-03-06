@@ -15,7 +15,8 @@
 .currentTimeLine {
   position: absolute;
   left: 0;
-  background-color: rgb(25, 25, 25);
-  width: 100%;
+  background-color: rgba(255, 0, 0, 0.25);
+  margin-left: -99999px;
+  width: 999999px;
   height: 3px;
 }

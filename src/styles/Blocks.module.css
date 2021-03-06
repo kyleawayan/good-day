@@ -4,10 +4,5 @@
 
 .blocks {
   position: absolute;
-  top: 8px;
   width: 95%;
-}
-
-.blocks div {
-  margin: 5px;
 }

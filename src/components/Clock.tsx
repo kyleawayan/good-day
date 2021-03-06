@@ -7,7 +7,7 @@ const zeroPad = (num: number, places: number) =>
 function getTime() {
   const date = new Date();
   return {
-    hour: (date.getHours() % 12).toString().replace(/(?<!\S)\d(?!\S)/g, '12'),
+    hour: (date.getHours() % 12).toString().replace(/(?<!\S)0(?!\S)/g, '12'),
     minute: zeroPad(date.getMinutes(), 2),
     seconds: zeroPad(date.getSeconds(), 2),
   };
@@ -32,8 +32,8 @@ export default function Clock() {
       <span className={styles.hoursAndMinutes}>
         {time.hour}:{time.minute}
         <span className={styles.seconds}>{time.seconds}</span>
-        <div className={styles.currentTimeLine} />
       </span>
+      <div className={styles.currentTimeLine} />
     </div>
   );
 }

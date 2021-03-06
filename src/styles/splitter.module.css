@@ -1,6 +1,4 @@
 .splitter {
-  display: grid;
-  grid-template-columns: minmax(150px, 25%) 1fr;
   padding: 0;
   margin: 0;
 }
