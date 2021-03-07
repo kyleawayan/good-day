@@ -6,6 +6,8 @@ type CalendarProps = {
   token: string;
 };
 
+const startOfDayDate = new Date().setHours(0, 0, 0, 0);
+
 export default function Planner({ token }: CalendarProps) {
   const [dates, setItems] = useState([
     new Date(new Date().setHours(0, 0, 0, 0)),
@@ -21,7 +23,6 @@ export default function Planner({ token }: CalendarProps) {
 
   useEffect(() => {
     const scrollInterval = setInterval(() => {
-      const startOfDayDate = new Date().setHours(0, 0, 0, 0);
       const hoursSinceStartOfCurrentDay =
         (new Date().getTime() - startOfDayDate) / 60000 / 60;
       window.scrollTo({
