@@ -1,5 +1,6 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import styles from '../styles/Clock.module.css';
+import SettingsContext from '../utils/settingsOpen';
 
 const zeroPad = (num: number, places: number) =>
   String(num).padStart(places, '0');
@@ -19,6 +20,14 @@ export default function Clock() {
     minute: '00',
     seconds: '00',
   });
+  const [showSettingsIcon, setShowSettingsIcon] = useState(false);
+  const { setSettingsOpen } = useContext(SettingsContext);
+
+  const openSettingsKeypress = (event: { key: string }) => {
+    if (event.key === 's') {
+      setSettingsOpen(true);
+    }
+  };
 
   useEffect(() => {
     const clockInterval = setInterval(() => {
@@ -28,7 +37,22 @@ export default function Clock() {
   }, []);
 
   return (
-    <div className={styles.clock}>
+    <div
+      className={styles.clock}
+      onMouseEnter={() => setShowSettingsIcon(true)}
+      onMouseLeave={() => setShowSettingsIcon(false)}
+    >
+      {showSettingsIcon && (
+        <div
+          className={styles.settingsIcon}
+          onClick={() => setSettingsOpen(true)}
+          onKeyPress={openSettingsKeypress}
+          role="button"
+          tabIndex={0}
+        >
+          settings
+        </div>
+      )}
       <span className={styles.hoursAndMinutes}>
         {time.hour}:{time.minute}
         <span className={styles.seconds}>{time.seconds}</span>

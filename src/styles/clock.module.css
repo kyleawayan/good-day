@@ -20,3 +20,9 @@
   width: 999999px;
   height: 3px;
 }
+
+.settingsIcon {
+  position: absolute;
+  right: 0;
+  cursor: pointer;
+}

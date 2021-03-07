@@ -2,12 +2,14 @@ import React, { useEffect, useState } from 'react';
 import { ipcRenderer } from 'electron';
 import ModalComponent from './components/ModalComponent';
 import SettingsModal from './components/SettingsModal';
-
 import Splitter from './components/Splitter';
+
+import SettingsContext from './utils/settingsOpen';
 
 export default function App() {
   const [token, setToken] = useState('');
   const [settingsOpen, setSettingsOpen] = useState(false);
+  const value = { settingsOpen, setSettingsOpen };
 
   useEffect(() => {
     ipcRenderer
@@ -32,13 +34,15 @@ export default function App() {
 
   return (
     <div>
-      <ModalComponent
-        isOpen={settingsOpen}
-        onClose={() => setSettingsOpen(false)}
-      >
-        <SettingsModal onApply={() => setSettingsOpen(false)} />
-      </ModalComponent>
-      <Splitter token={token} />
+      <SettingsContext.Provider value={value}>
+        <ModalComponent
+          isOpen={settingsOpen}
+          onClose={() => setSettingsOpen(false)}
+        >
+          <SettingsModal onApply={() => setSettingsOpen(false)} />
+        </ModalComponent>
+        <Splitter token={token} />
+      </SettingsContext.Provider>
     </div>
   );
 }
