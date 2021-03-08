@@ -1,0 +1,24 @@
+.splitter {
+  padding: 0;
+  margin: 0;
+}
+
+.sidebar {
+  height: 100vh;
+  font-size: 2rem;
+  text-align: center;
+  position: fixed;
+  right: 0;
+  top: 0;
+  width: 350px;
+  border-left: 3px solid rgb(25, 25, 25);
+  background-color: black;
+}
+
+.content {
+  width: 300%;
+}
+
+body {
+  font-family: system-ui, serif;
+}
