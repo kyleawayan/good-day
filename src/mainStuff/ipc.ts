@@ -11,7 +11,7 @@ export default function ipcStuff() {
 
   ipcMain.handle('getCanvasUrl', () => {
     if (process.env.GOOD_DAY_CANVAS_URL) {
-      return process.env.CANVAS_URL;
+      return process.env.GOOD_DAY_CANVAS_URL;
     }
     return store.get('good-day-canvas-Url');
   });
@@ -22,7 +22,7 @@ export default function ipcStuff() {
 
   ipcMain.handle('getCanvasToken', async () => {
     if (process.env.GOOD_DAY_CANVAS_TOKEN) {
-      return process.env.CANVAS_TOKEN;
+      return process.env.GOOD_DAY_CANVAS_TOKEN;
     }
     return canvas.getToken();
   });
