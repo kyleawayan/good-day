@@ -79,6 +79,10 @@ const createWindow = async () => {
     },
   });
 
+  if (process.env.GOOD_DAY_FULLSCREEN === 'true') {
+    mainWindow.setFullScreen(true);
+  }
+
   mainWindow.removeMenu();
 
   // start ipc handlers
