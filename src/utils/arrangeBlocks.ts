@@ -34,8 +34,6 @@ export default function arrangeBlocks(
     let tempArray: Array<PlannerItem> = [data[0]]; // where two (or more) blocks would be joined together. aka they have overlapping times
     let domain = getTimeDomain(data[0]);
 
-    console.log(data);
-
     let i;
     for (i = 1; i < data.length; i += 1) {
       const eventStartTime = new Date(data[i].plannable_date).getTime();

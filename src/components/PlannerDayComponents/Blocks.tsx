@@ -10,8 +10,6 @@ type BlocksProps = {
 export default function Blocks({ data }: BlocksProps) {
   const arrayData = arrangeBlocks(data);
 
-  console.log(arrayData);
-
   return (
     <div className={styles.blocksParent}>
       <div className={styles.blocks}>
