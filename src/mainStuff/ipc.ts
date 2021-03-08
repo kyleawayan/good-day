@@ -6,7 +6,6 @@ const store = new Store();
 
 export default function ipcStuff() {
   ipcMain.handle('storeCanvasUrl', (_, args) => {
-    console.log(args);
     store.set('good-day-canvas-Url', args);
   });
 
