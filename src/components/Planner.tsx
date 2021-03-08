@@ -4,11 +4,12 @@ import PlannerDay from './PlannerDay';
 
 type CalendarProps = {
   token: string;
+  canvasUrl: string;
 };
 
 const startOfDayDate = new Date().setHours(0, 0, 0, 0);
 
-export default function Planner({ token }: CalendarProps) {
+export default function Planner({ token, canvasUrl }: CalendarProps) {
   const [dates, setItems] = useState([
     new Date(new Date().setHours(0, 0, 0, 0)),
   ]);
@@ -46,7 +47,7 @@ export default function Planner({ token }: CalendarProps) {
     >
       {dates.map((_, index) => (
         <div key={dates[index].getTime()}>
-          <PlannerDay date={dates[index]} token={token} />
+          <PlannerDay date={dates[index]} token={token} canvasUrl={canvasUrl} />
         </div>
       ))}
     </InfiniteScroll>

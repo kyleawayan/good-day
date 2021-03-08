@@ -8,29 +8,21 @@ import SettingsContext from './utils/settingsOpen';
 
 export default function App() {
   const [token, setToken] = useState('');
+  const [canvasUrl, setCanvasUrl] = useState('');
   const [settingsOpen, setSettingsOpen] = useState(false);
   const value = { settingsOpen, setSettingsOpen };
 
   useEffect(() => {
-    ipcRenderer
-      .invoke('getCanvasToken')
-      .then((retrievedToken) => {
-        if (retrievedToken) {
-          setToken(retrievedToken);
-        } else {
-          setToken('nah');
-          setSettingsOpen(true);
-        }
-      })
-      .catch(() => {
-        setToken('nah');
+    (async () => {
+      const canvasTokenResponse = await ipcRenderer.invoke('getCanvasToken');
+      setToken(canvasTokenResponse);
+      const canvasUrlResponse = await ipcRenderer.invoke('getCanvasUrl');
+      setCanvasUrl(canvasUrlResponse);
+      if (!canvasTokenResponse || !canvasUrlResponse) {
         setSettingsOpen(true);
-      });
+      }
+    })();
   }, [settingsOpen]);
-
-  if (!token) {
-    return <div>loading...</div>;
-  }
 
   return (
     <div>
@@ -41,7 +33,7 @@ export default function App() {
         >
           <SettingsModal onApply={() => setSettingsOpen(false)} />
         </ModalComponent>
-        <Splitter token={token} />
+        {canvasUrl && token && <Splitter token={token} canvasUrl={canvasUrl} />}
       </SettingsContext.Provider>
     </div>
   );

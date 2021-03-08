@@ -7,15 +7,20 @@ import UpcomingEventDays from './UpcomingEventsComponents/UpcomingEventDays';
 
 type UpcomingEventsProps = {
   token: string;
+  canvasUrl: string;
 };
 
-const getCalendarData = (date: Date, token: string) => {
+const getCalendarData = async (
+  date: Date,
+  token: string,
+  canvasUrl: string
+) => {
   const correctlyFormattedDate = new Date(date);
   const afterWeekDate = new Date(date);
   afterWeekDate.setDate(correctlyFormattedDate.getDate() + 7);
   return axios({
     method: 'get',
-    url: 'https://catcourses.ucmerced.edu/api/v1/planner/items',
+    url: `https://${canvasUrl}/api/v1/planner/items`,
     headers: {
       Authorization: `Bearer ${token}`,
     },
@@ -26,9 +31,12 @@ const getCalendarData = (date: Date, token: string) => {
   }).then((r) => seperateEventsByDate(r.data));
 };
 
-export default function UpcomingEvents({ token }: UpcomingEventsProps) {
+export default function UpcomingEvents({
+  token,
+  canvasUrl,
+}: UpcomingEventsProps) {
   const { data, error } = useSWR(
-    [new Date().setHours(0, 0, 0, 0), token],
+    [new Date().setHours(0, 0, 0, 0), token, canvasUrl],
     getCalendarData,
     { refreshInterval: 1000 }
   );

@@ -4,12 +4,12 @@ import axios from 'axios';
 import Ruler from './PlannerDayComponents/Ruler';
 import Blocks from './PlannerDayComponents/Blocks';
 
-const getCalendarData = (date: Date, token: string) => {
+const getCalendarData = (date: Date, token: string, canvasUrl: string) => {
   const tomorrowDate = new Date(date);
   tomorrowDate.setDate(date.getDate() + 1);
   return axios({
     method: 'get',
-    url: 'https://catcourses.ucmerced.edu/api/v1/planner/items',
+    url: `https://${canvasUrl}/api/v1/planner/items`,
     headers: {
       Authorization: `Bearer ${token}`,
     },
@@ -23,10 +23,15 @@ const getCalendarData = (date: Date, token: string) => {
 type PlannerDayProps = {
   date: Date;
   token: string;
+  canvasUrl: string;
 };
 
-export default function PlannerDay({ date, token }: PlannerDayProps) {
-  const { data, error } = useSWR([date, token], getCalendarData, {
+export default function PlannerDay({
+  date,
+  token,
+  canvasUrl,
+}: PlannerDayProps) {
+  const { data, error } = useSWR([date, token, canvasUrl], getCalendarData, {
     refreshInterval: 1000,
   });
 

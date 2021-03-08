@@ -1,0 +1,12 @@
+.intro h1 {
+  font-family: 'InterSemiBold';
+}
+
+.step h2 {
+  font-family: 'InterSemiBold';
+  margin-bottom: 5px;
+}
+
+.step p {
+  margin-top: 0px;
+}
